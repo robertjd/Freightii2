@@ -29,7 +29,10 @@ module.exports = function(app) {
   app.use(cookieParser());
 
   app.use(stormpath.init(app,{
-    website: true
+    website: true,
+    web: {
+      spaRoot: path.join(__dirname,'..','..','client')
+    }
   }));
 
   if ('production' === env) {
